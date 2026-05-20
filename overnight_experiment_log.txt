@@ -1,0 +1,298 @@
+2026-05-17 23:24:55,518 [INFO] ============================================================
+2026-05-17 23:24:55,518 [INFO]  🌙 밤샘 베이지안 최적화(Bayesian Optimization) 쉘 가동
+2026-05-17 23:24:55,518 [INFO] ============================================================
+2026-05-17 23:24:56,034 [INFO] ▶ [실험 시작] 실행 명령어: python or_w_parameter.py --lr 0.001740050885591432 --batch 1024 --epochs 2 --hidden 192
+2026-05-17 23:51:22,319 [INFO] ▶ [실험 종료] 소요 시간: 26.4 분
+2026-05-17 23:51:22,319 [ERROR] 스크립트 실행 중 에러 발생! 해당 파라미터는 실패(Penalty) 처리합니다.
+2026-05-17 23:51:22,319 [ERROR] 에러 로그 요약:
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1779027896.290053   53644 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+C:\Users\User\anaconda3\envs\cplex-env\lib\site-packages\google\api_core\_python_version_support.py:275: FutureWarning: You are usin
+2026-05-17 23:51:22,428 [INFO] ▶ [실험 시작] 실행 명령어: python or_w_parameter.py --lr 0.0033613380859921762 --batch 4096 --epochs 2 --hidden 192
+2026-05-18 00:05:17,162 [INFO] ▶ [실험 종료] 소요 시간: 13.9 분
+2026-05-18 00:05:17,164 [ERROR] 스크립트 실행 중 에러 발생! 해당 파라미터는 실패(Penalty) 처리합니다.
+2026-05-18 00:05:17,165 [ERROR] 에러 로그 요약:
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1779029482.785259   27564 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+C:\Users\User\anaconda3\envs\cplex-env\lib\site-packages\google\api_core\_python_version_support.py:275: FutureWarning: You are usin
+2026-05-18 00:05:17,237 [INFO] ▶ [실험 시작] 실행 명령어: python or_w_parameter.py --lr 0.004202031625851297 --batch 2048 --epochs 2 --hidden 192
+2026-05-18 00:25:27,736 [INFO] ▶ [실험 종료] 소요 시간: 20.2 분
+2026-05-18 00:25:27,739 [ERROR] 스크립트 실행 중 에러 발생! 해당 파라미터는 실패(Penalty) 처리합니다.
+2026-05-18 00:25:27,740 [ERROR] 에러 로그 요약:
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1779030317.560171   35816 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+C:\Users\User\anaconda3\envs\cplex-env\lib\site-packages\google\api_core\_python_version_support.py:275: FutureWarning: You are usin
+2026-05-18 00:25:27,817 [INFO] ▶ [실험 시작] 실행 명령어: python or_w_parameter.py --lr 0.0018945392840448358 --batch 2048 --epochs 4 --hidden 192
+2026-05-18 01:55:05,350 [INFO] ============================================================
+2026-05-18 01:55:05,350 [INFO]  🌙 밤샘 베이지안 최적화(Bayesian Optimization) 쉘 가동
+2026-05-18 01:55:05,351 [INFO] ============================================================
+2026-05-18 01:55:05,933 [INFO] ▶ [실험 시작] 실행 명령어: python or_w_parameter.py --lr 0.0074503643695033065 --batch 4096 --epochs 2 --hidden 192
+2026-05-18 02:09:39,058 [INFO] ▶ [실험 종료] 소요 시간: 14.6 분
+2026-05-18 02:09:39,058 [ERROR] 스크립트 실행 중 에러 발생! 해당 파라미터는 실패(Penalty) 처리합니다.
+2026-05-18 02:09:39,058 [ERROR] 에러 로그 요약:
+036908.926322   58908 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1779037004.289570   26168 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 AVX_VNNI AVX_VNNI_INT8 AVX_NE_CONVERT FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING:tensorflow:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+WARNING:tensorflow:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+Traceback (most recent call last):
+  File "C:\Users\User\OneDrive - postech.ac.kr\2026\Ͱ  α׷\mercari-price-suggestion-challenge\or_w_parameter.py", line 286, in <module>
+    main()
+  File "C:\Users\User\OneDrive - postech.ac.kr\2026\Ͱ  α׷\mercari-price-suggestion-challenge\or_w_parameter.py", line 222, in main
+    print(f"\U0001f4ca [   Ʈ -  شȭ ]")
+UnicodeEncodeError: 'cp949' codec can't encode character '\U0001f4ca' in position 0: illegal multibyte sequence
+
+2026-05-18 02:09:39,186 [INFO] ▶ [실험 시작] 실행 명령어: python or_w_parameter.py --lr 0.009746042293112574 --batch 1024 --epochs 1 --hidden 192
+2026-05-18 02:30:00,857 [INFO] ▶ [실험 종료] 소요 시간: 20.4 분
+2026-05-18 02:30:00,857 [ERROR] 스크립트 실행 중 에러 발생! 해당 파라미터는 실패(Penalty) 처리합니다.
+2026-05-18 02:30:00,857 [ERROR] 에러 로그 요약:
+ set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1779037878.847224   65588 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 AVX_VNNI AVX_VNNI_INT8 AVX_NE_CONVERT FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING:tensorflow:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+WARNING:tensorflow:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+WARNING:tensorflow:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+Traceback (most recent call last):
+  File "C:\Users\User\OneDrive - postech.ac.kr\2026\Ͱ  α׷\mercari-price-suggestion-challenge\or_w_parameter.py", line 286, in <module>
+    main()
+  File "C:\Users\User\OneDrive - postech.ac.kr\2026\Ͱ  α׷\mercari-price-suggestion-challenge\or_w_parameter.py", line 222, in main
+    print(f"\U0001f4ca [   Ʈ -  شȭ ]")
+UnicodeEncodeError: 'cp949' codec can't encode character '\U0001f4ca' in position 0: illegal multibyte sequence
+
+2026-05-18 02:30:00,912 [INFO] ▶ [실험 시작] 실행 명령어: python or_w_parameter.py --lr 0.007279791730279728 --batch 2048 --epochs 2 --hidden 128
+2026-05-18 02:44:24,651 [INFO] ▶ [실험 종료] 소요 시간: 14.4 분
+2026-05-18 02:44:24,651 [ERROR] 스크립트 실행 중 에러 발생! 해당 파라미터는 실패(Penalty) 처리합니다.
+2026-05-18 02:44:24,651 [ERROR] 에러 로그 요약:
+ set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1779039099.462709   66864 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 AVX_VNNI AVX_VNNI_INT8 AVX_NE_CONVERT FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING:tensorflow:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+WARNING:tensorflow:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+WARNING:tensorflow:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+Traceback (most recent call last):
+  File "C:\Users\User\OneDrive - postech.ac.kr\2026\Ͱ  α׷\mercari-price-suggestion-challenge\or_w_parameter.py", line 286, in <module>
+    main()
+  File "C:\Users\User\OneDrive - postech.ac.kr\2026\Ͱ  α׷\mercari-price-suggestion-challenge\or_w_parameter.py", line 222, in main
+    print(f"\U0001f4ca [   Ʈ -  شȭ ]")
+UnicodeEncodeError: 'cp949' codec can't encode character '\U0001f4ca' in position 0: illegal multibyte sequence
+
+2026-05-18 02:44:24,718 [INFO] ▶ [실험 시작] 실행 명령어: python or_w_parameter.py --lr 0.004681807090396488 --batch 4096 --epochs 3 --hidden 192
+2026-05-18 02:51:27,174 [INFO] ============================================================
+2026-05-18 02:51:27,174 [INFO]  🌙 밤샘 베이지안 최적화(Bayesian Optimization) 쉘 가동
+2026-05-18 02:51:27,174 [INFO] ============================================================
+2026-05-18 02:51:27,737 [INFO] ▶ [실험 시작] 실행 명령어: python or_w_parameter.py --lr 0.005960462269471035 --batch 4096 --epochs 1 --hidden 128
+2026-05-18 02:58:15,686 [INFO] ▶ [실험 종료] 소요 시간: 6.8 분
+2026-05-18 02:58:15,695 [ERROR] 스크립트 실행 중 에러 발생! 해당 파라미터는 실패(Penalty) 처리합니다.
+2026-05-18 02:58:15,695 [ERROR] 에러 로그 요약:
+o continue receiving updates for google.api_core past that date.
+  warnings.warn(message, FutureWarning)
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1779040290.654868   19680 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1779040375.609196   64928 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 AVX_VNNI AVX_VNNI_INT8 AVX_NE_CONVERT FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING:tensorflow:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+Traceback (most recent call last):
+  File "C:\Users\User\OneDrive - postech.ac.kr\2026\Ͱ  α׷\mercari-price-suggestion-challenge\or_w_parameter.py", line 286, in <module>
+    main()
+  File "C:\Users\User\OneDrive - postech.ac.kr\2026\Ͱ  α׷\mercari-price-suggestion-challenge\or_w_parameter.py", line 222, in main
+    print(f"\U0001f4ca [   Ʈ -  شȭ ]")
+UnicodeEncodeError: 'cp949' codec can't encode character '\U0001f4ca' in position 0: illegal multibyte sequence
+
+2026-05-18 02:58:15,770 [INFO] ▶ [실험 시작] 실행 명령어: python or_w_parameter.py --lr 0.005834701324876084 --batch 1024 --epochs 3 --hidden 128
+2026-05-18 03:24:56,243 [INFO] ▶ [실험 종료] 소요 시간: 26.7 분
+2026-05-18 03:24:56,243 [ERROR] 스크립트 실행 중 에러 발생! 해당 파라미터는 실패(Penalty) 처리합니다.
+2026-05-18 03:24:56,243 [ERROR] 에러 로그 요약:
+040699.503450   61140 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1779040795.421585   36152 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 AVX_VNNI AVX_VNNI_INT8 AVX_NE_CONVERT FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING:tensorflow:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+WARNING:tensorflow:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+Traceback (most recent call last):
+  File "C:\Users\User\OneDrive - postech.ac.kr\2026\Ͱ  α׷\mercari-price-suggestion-challenge\or_w_parameter.py", line 286, in <module>
+    main()
+  File "C:\Users\User\OneDrive - postech.ac.kr\2026\Ͱ  α׷\mercari-price-suggestion-challenge\or_w_parameter.py", line 222, in main
+    print(f"\U0001f4ca [   Ʈ -  شȭ ]")
+UnicodeEncodeError: 'cp949' codec can't encode character '\U0001f4ca' in position 0: illegal multibyte sequence
+
+2026-05-18 03:24:56,323 [INFO] ▶ [실험 시작] 실행 명령어: python or_w_parameter.py --lr 0.001101793983991701 --batch 1024 --epochs 2 --hidden 128
+2026-05-18 03:46:36,733 [INFO] ▶ [실험 종료] 소요 시간: 21.7 분
+2026-05-18 03:46:36,733 [ERROR] 스크립트 실행 중 에러 발생! 해당 파라미터는 실패(Penalty) 처리합니다.
+2026-05-18 03:46:36,733 [ERROR] 에러 로그 요약:
+o continue receiving updates for google.api_core past that date.
+  warnings.warn(message, FutureWarning)
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1779042300.046507   11308 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1779042393.794090   65480 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 AVX_VNNI AVX_VNNI_INT8 AVX_NE_CONVERT FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING:tensorflow:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+Traceback (most recent call last):
+  File "C:\Users\User\OneDrive - postech.ac.kr\2026\Ͱ  α׷\mercari-price-suggestion-challenge\or_w_parameter.py", line 286, in <module>
+    main()
+  File "C:\Users\User\OneDrive - postech.ac.kr\2026\Ͱ  α׷\mercari-price-suggestion-challenge\or_w_parameter.py", line 222, in main
+    print(f"\U0001f4ca [   Ʈ -  شȭ ]")
+UnicodeEncodeError: 'cp949' codec can't encode character '\U0001f4ca' in position 0: illegal multibyte sequence
+
+2026-05-18 03:46:36,780 [INFO] ▶ [실험 시작] 실행 명령어: python or_w_parameter.py --lr 0.009704296820258805 --batch 1024 --epochs 1 --hidden 256
+2026-05-18 04:11:54,449 [INFO] ▶ [실험 종료] 소요 시간: 25.3 분
+2026-05-18 04:11:54,465 [ERROR] 스크립트 실행 중 에러 발생! 해당 파라미터는 실패(Penalty) 처리합니다.
+2026-05-18 04:11:54,465 [ERROR] 에러 로그 요약:
+o continue receiving updates for google.api_core past that date.
+  warnings.warn(message, FutureWarning)
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1779043600.069604   64812 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1779043694.216132   14580 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 AVX_VNNI AVX_VNNI_INT8 AVX_NE_CONVERT FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING:tensorflow:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+Traceback (most recent call last):
+  File "C:\Users\User\OneDrive - postech.ac.kr\2026\Ͱ  α׷\mercari-price-suggestion-challenge\or_w_parameter.py", line 286, in <module>
+    main()
+  File "C:\Users\User\OneDrive - postech.ac.kr\2026\Ͱ  α׷\mercari-price-suggestion-challenge\or_w_parameter.py", line 222, in main
+    print(f"\U0001f4ca [   Ʈ -  شȭ ]")
+UnicodeEncodeError: 'cp949' codec can't encode character '\U0001f4ca' in position 0: illegal multibyte sequence
+
+2026-05-18 04:11:54,544 [INFO] ▶ [실험 시작] 실행 명령어: python or_w_parameter.py --lr 0.0016483017139240952 --batch 1024 --epochs 3 --hidden 256
+2026-05-18 05:00:22,103 [INFO] ▶ [실험 종료] 소요 시간: 48.5 분
+2026-05-18 05:00:22,107 [ERROR] 스크립트 실행 중 에러 발생! 해당 파라미터는 실패(Penalty) 처리합니다.
+2026-05-18 05:00:22,107 [ERROR] 에러 로그 요약:
+o continue receiving updates for google.api_core past that date.
+  warnings.warn(message, FutureWarning)
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1779045118.314409   63780 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1779045212.205431   61048 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 AVX_VNNI AVX_VNNI_INT8 AVX_NE_CONVERT FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING:tensorflow:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+Traceback (most recent call last):
+  File "C:\Users\User\OneDrive - postech.ac.kr\2026\Ͱ  α׷\mercari-price-suggestion-challenge\or_w_parameter.py", line 286, in <module>
+    main()
+  File "C:\Users\User\OneDrive - postech.ac.kr\2026\Ͱ  α׷\mercari-price-suggestion-challenge\or_w_parameter.py", line 222, in main
+    print(f"\U0001f4ca [   Ʈ -  شȭ ]")
+UnicodeEncodeError: 'cp949' codec can't encode character '\U0001f4ca' in position 0: illegal multibyte sequence
+
+2026-05-18 05:00:22,185 [INFO] ▶ [실험 시작] 실행 명령어: python or_w_parameter.py --lr 0.002430475929860768 --batch 4096 --epochs 3 --hidden 192
+2026-05-18 05:18:15,412 [INFO] ▶ [실험 종료] 소요 시간: 17.9 분
+2026-05-18 05:18:15,412 [ERROR] 스크립트 실행 중 에러 발생! 해당 파라미터는 실패(Penalty) 처리합니다.
+2026-05-18 05:18:15,412 [ERROR] 에러 로그 요약:
+o continue receiving updates for google.api_core past that date.
+  warnings.warn(message, FutureWarning)
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1779048026.187587   69584 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1779048120.484878   24236 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 AVX_VNNI AVX_VNNI_INT8 AVX_NE_CONVERT FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING:tensorflow:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+Traceback (most recent call last):
+  File "C:\Users\User\OneDrive - postech.ac.kr\2026\Ͱ  α׷\mercari-price-suggestion-challenge\or_w_parameter.py", line 286, in <module>
+    main()
+  File "C:\Users\User\OneDrive - postech.ac.kr\2026\Ͱ  α׷\mercari-price-suggestion-challenge\or_w_parameter.py", line 222, in main
+    print(f"\U0001f4ca [   Ʈ -  شȭ ]")
+UnicodeEncodeError: 'cp949' codec can't encode character '\U0001f4ca' in position 0: illegal multibyte sequence
+
+2026-05-18 05:18:15,449 [INFO] ▶ [실험 시작] 실행 명령어: python or_w_parameter.py --lr 0.002735942971257907 --batch 4096 --epochs 2 --hidden 192
+2026-05-18 05:32:07,690 [INFO] ▶ [실험 종료] 소요 시간: 13.9 분
+2026-05-18 05:32:07,695 [ERROR] 스크립트 실행 중 에러 발생! 해당 파라미터는 실패(Penalty) 처리합니다.
+2026-05-18 05:32:07,695 [ERROR] 에러 로그 요약:
+itical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 AVX_VNNI AVX_VNNI_INT8 AVX_NE_CONVERT FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING:tensorflow:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+WARNING:tensorflow:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+WARNING:tensorflow:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+WARNING:tensorflow:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+Traceback (most recent call last):
+  File "C:\Users\User\OneDrive - postech.ac.kr\2026\Ͱ  α׷\mercari-price-suggestion-challenge\or_w_parameter.py", line 286, in <module>
+    main()
+  File "C:\Users\User\OneDrive - postech.ac.kr\2026\Ͱ  α׷\mercari-price-suggestion-challenge\or_w_parameter.py", line 222, in main
+    print(f"\U0001f4ca [   Ʈ -  شȭ ]")
+UnicodeEncodeError: 'cp949' codec can't encode character '\U0001f4ca' in position 0: illegal multibyte sequence
+
+2026-05-18 05:32:07,741 [INFO] ▶ [실험 시작] 실행 명령어: python or_w_parameter.py --lr 0.0018420017146200346 --batch 4096 --epochs 2 --hidden 192
+2026-05-18 05:46:00,493 [INFO] ▶ [실험 종료] 소요 시간: 13.9 분
+2026-05-18 05:46:00,493 [ERROR] 스크립트 실행 중 에러 발생! 해당 파라미터는 실패(Penalty) 처리합니다.
+2026-05-18 05:46:00,493 [ERROR] 에러 로그 요약:
+itical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 AVX_VNNI AVX_VNNI_INT8 AVX_NE_CONVERT FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING:tensorflow:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+WARNING:tensorflow:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+WARNING:tensorflow:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+WARNING:tensorflow:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+Traceback (most recent call last):
+  File "C:\Users\User\OneDrive - postech.ac.kr\2026\Ͱ  α׷\mercari-price-suggestion-challenge\or_w_parameter.py", line 286, in <module>
+    main()
+  File "C:\Users\User\OneDrive - postech.ac.kr\2026\Ͱ  α׷\mercari-price-suggestion-challenge\or_w_parameter.py", line 222, in main
+    print(f"\U0001f4ca [   Ʈ -  شȭ ]")
+UnicodeEncodeError: 'cp949' codec can't encode character '\U0001f4ca' in position 0: illegal multibyte sequence
+
+2026-05-18 05:46:00,540 [INFO] ▶ [실험 시작] 실행 명령어: python or_w_parameter.py --lr 0.003618298829607809 --batch 2048 --epochs 2 --hidden 192
+2026-05-18 06:05:32,768 [INFO] ▶ [실험 종료] 소요 시간: 19.5 분
+2026-05-18 06:05:32,768 [ERROR] 스크립트 실행 중 에러 발생! 해당 파라미터는 실패(Penalty) 처리합니다.
+2026-05-18 06:05:32,768 [ERROR] 에러 로그 요약:
+050763.641976   65032 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1779050857.212130   66716 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 AVX_VNNI AVX_VNNI_INT8 AVX_NE_CONVERT FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING:tensorflow:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+WARNING:tensorflow:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+Traceback (most recent call last):
+  File "C:\Users\User\OneDrive - postech.ac.kr\2026\Ͱ  α׷\mercari-price-suggestion-challenge\or_w_parameter.py", line 286, in <module>
+    main()
+  File "C:\Users\User\OneDrive - postech.ac.kr\2026\Ͱ  α׷\mercari-price-suggestion-challenge\or_w_parameter.py", line 222, in main
+    print(f"\U0001f4ca [   Ʈ -  شȭ ]")
+UnicodeEncodeError: 'cp949' codec can't encode character '\U0001f4ca' in position 0: illegal multibyte sequence
+
+2026-05-18 06:05:32,828 [INFO] ▶ [실험 시작] 실행 명령어: python or_w_parameter.py --lr 0.0010039586210811894 --batch 1024 --epochs 3 --hidden 192
+2026-05-18 06:43:26,714 [INFO] ▶ [실험 종료] 소요 시간: 37.9 분
+2026-05-18 06:43:26,714 [ERROR] 스크립트 실행 중 에러 발생! 해당 파라미터는 실패(Penalty) 처리합니다.
+2026-05-18 06:43:26,714 [ERROR] 에러 로그 요약:
+itical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 AVX_VNNI AVX_VNNI_INT8 AVX_NE_CONVERT FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING:tensorflow:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+WARNING:tensorflow:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+WARNING:tensorflow:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+WARNING:tensorflow:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+Traceback (most recent call last):
+  File "C:\Users\User\OneDrive - postech.ac.kr\2026\Ͱ  α׷\mercari-price-suggestion-challenge\or_w_parameter.py", line 286, in <module>
+    main()
+  File "C:\Users\User\OneDrive - postech.ac.kr\2026\Ͱ  α׷\mercari-price-suggestion-challenge\or_w_parameter.py", line 222, in main
+    print(f"\U0001f4ca [   Ʈ -  شȭ ]")
+UnicodeEncodeError: 'cp949' codec can't encode character '\U0001f4ca' in position 0: illegal multibyte sequence
+
+2026-05-18 06:43:26,746 [INFO] ============================================================
+2026-05-18 06:43:26,746 [INFO]  🌅 모든 최적화 실험이 성공적으로 완료되었습니다!
+2026-05-18 06:43:26,746 [INFO] ============================================================
+2026-05-18 06:43:26,762 [INFO] 🏆 찾은 베스트 최적화 점수: 999.00000
+2026-05-18 06:43:26,762 [INFO] 💡 베스트 파라미터 조합: {'lr': 0.001740050885591432, 'batch_base': 1024, 'epochs': 2, 'hidden': 192}
+2026-05-18 10:35:20,340 [INFO] ============================================================
+2026-05-18 10:35:20,344 [INFO]  🌙 밤샘 베이지안 최적화(Bayesian Optimization) 쉘 가동
+2026-05-18 10:35:20,344 [INFO] ============================================================
+2026-05-18 10:35:20,946 [INFO] ▶ [실험 시작] 실행 명령어: python or_w_parameter.py --lr 0.0017251433304132989 --batch 4096 --epochs 1 --hidden 256
+2026-05-18 10:46:35,734 [INFO] ▶ [실험 종료] 소요 시간: 11.2 분
+2026-05-18 10:46:35,739 [INFO] 🎯 획득한 최적화 Score: 0.40255
+2026-05-18 10:46:35,849 [INFO] ▶ [실험 시작] 실행 명령어: python or_w_parameter.py --lr 0.0016095516844582339 --batch 1024 --epochs 1 --hidden 256
+2026-05-18 11:11:39,426 [INFO] ▶ [실험 종료] 소요 시간: 25.1 분
+2026-05-18 11:11:39,426 [INFO] 🎯 획득한 최적화 Score: 0.39851
+2026-05-18 11:11:39,500 [INFO] ▶ [실험 시작] 실행 명령어: python or_w_parameter.py --lr 0.0013099802730443875 --batch 4096 --epochs 1 --hidden 256
+2026-05-18 11:22:15,443 [INFO] ▶ [실험 종료] 소요 시간: 10.6 분
+2026-05-18 11:22:15,443 [INFO] 🎯 획득한 최적화 Score: 0.40439
+2026-05-18 11:22:15,539 [INFO] ▶ [실험 시작] 실행 명령어: python or_w_parameter.py --lr 0.002169848054660244 --batch 2048 --epochs 1 --hidden 256
+2026-05-18 11:37:27,756 [INFO] ▶ [실험 종료] 소요 시간: 15.2 분
+2026-05-18 11:37:27,756 [INFO] 🎯 획득한 최적화 Score: 0.3997
+2026-05-18 11:37:27,851 [INFO] ▶ [실험 시작] 실행 명령어: python or_w_parameter.py --lr 0.0021829309679949624 --batch 2048 --epochs 1 --hidden 256
+2026-05-18 11:52:29,482 [INFO] ▶ [실험 종료] 소요 시간: 15.0 분
+2026-05-18 11:52:29,482 [INFO] 🎯 획득한 최적화 Score: 0.39943
+2026-05-18 11:52:29,547 [INFO] ▶ [실험 시작] 실행 명령어: python or_w_parameter.py --lr 0.0022863043331860554 --batch 2048 --epochs 1 --hidden 256
+2026-05-18 12:07:45,667 [INFO] ▶ [실험 종료] 소요 시간: 15.3 분
+2026-05-18 12:07:45,668 [INFO] 🎯 획득한 최적화 Score: 0.39939
+2026-05-18 12:07:45,731 [INFO] ▶ [실험 시작] 실행 명령어: python or_w_parameter.py --lr 0.001449506401335272 --batch 2048 --epochs 1 --hidden 256
+2026-05-18 12:23:11,360 [INFO] ▶ [실험 종료] 소요 시간: 15.4 분
+2026-05-18 12:23:11,362 [INFO] 🎯 획득한 최적화 Score: 0.40035
+2026-05-18 12:23:11,439 [INFO] ▶ [실험 시작] 실행 명령어: python or_w_parameter.py --lr 0.0027007167468135014 --batch 2048 --epochs 1 --hidden 256
+2026-05-18 12:38:20,561 [INFO] ▶ [실험 종료] 소요 시간: 15.2 분
+2026-05-18 12:38:20,564 [INFO] 🎯 획득한 최적화 Score: 0.39961
+2026-05-18 12:38:20,635 [INFO] ▶ [실험 시작] 실행 명령어: python or_w_parameter.py --lr 0.0021409937561857203 --batch 2048 --epochs 1 --hidden 256
+2026-05-18 12:53:45,346 [INFO] ▶ [실험 종료] 소요 시간: 15.4 분
+2026-05-18 12:53:45,347 [INFO] 🎯 획득한 최적화 Score: 0.39979
+2026-05-18 12:53:45,411 [INFO] ▶ [실험 시작] 실행 명령어: python or_w_parameter.py --lr 0.0013034257797684512 --batch 2048 --epochs 1 --hidden 256
+2026-05-18 13:09:15,016 [INFO] ▶ [실험 종료] 소요 시간: 15.5 분
+2026-05-18 13:09:15,019 [INFO] 🎯 획득한 최적화 Score: 0.40146
+2026-05-18 13:09:15,053 [INFO] ============================================================
+2026-05-18 13:09:15,053 [INFO]  🌅 모든 최적화 실험이 성공적으로 완료되었습니다!
+2026-05-18 13:09:15,053 [INFO] ============================================================
+2026-05-18 13:09:15,067 [INFO] 🏆 찾은 베스트 최적화 점수: 0.39851
+2026-05-18 13:09:15,068 [INFO] 💡 베스트 파라미터 조합: {'lr': 0.0016095516844582339, 'batch_base': 1024, 'epochs': 1, 'hidden': 256}
