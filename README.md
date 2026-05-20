@@ -1,10 +1,14 @@
 # Mercari Price Suggestion Challenge
-> **Machine Learning & Operations Research Fusion Project**
 
 본 프로젝트는 딥러닝 기반의 가격 예측 알고리즘(Keras/TensorFlow)과 수리 최적화 기법(SciPy SLSQP / Gurobi QP)을 융합하여 단일 머신러닝 모델의 성능 한계를 돌파하는 MLOps 및 OR 융합 프레임워크를 구축한 연구입니다.
 
 * ⚠️ input 폴더 압축 해제 이후 진행 필수
 * input/train.tsv가 존재해야 진행 가능
+* Competition: https://www.kaggle.com/competitions/mercari-price-suggestion-challenge
+* PPT: https://docs.google.com/presentation/d/1EZkm_UX61l5m49boglZ5hAKvAOddlVP0/edit?usp=sharing&ouid=112452584649023682074&rtpof=true&sd=true
+* EDA: https://www.kaggle.com/code/thykhuely/mercari-interactive-eda-topic-modelling
+* Baseline code: https://www.kaggle.com/code/lopuhin/mercari-golf-0-3875-cv-in-75-loc-1900-s
+* 
 
 ---
 
