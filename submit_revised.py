@@ -1,8 +1,12 @@
 import os
+# 하부 C/C++ 라이브러리의 OpenMP 멀티 스레딩을 1개로 강제 제한하여 코어 경합 방지
+os.environ['OMP_NUM_THREADS'] = '1'
+
 import time
 from contextlib import contextmanager
 from functools import partial
 from operator import itemgetter
+from multiprocessing.pool import ThreadPool
 from typing import List, Dict
 
 import pandas as pd
@@ -14,7 +18,6 @@ from sklearn.preprocessing import FunctionTransformer, StandardScaler
 from sklearn.metrics import mean_squared_log_error
 from sklearn.model_selection import KFold
 
-# 구형 Keras 완벽 호환
 import tensorflow as tf
 import keras as ks
 from keras.layers import Input, Dense
@@ -38,23 +41,40 @@ def on_field(f: str, *vec) -> Pipeline:
 def to_records(df: pd.DataFrame) -> List[Dict]:
     return df.to_dict(orient='records')
 
-def fit_predict(xs, y_train, lr, batch_base, epochs, hidden_size) -> np.ndarray:
-    X_train, X_test = xs
+def fit_predict(x_data, y_train, lr, batch_base, epochs, hidden_size) -> np.ndarray:
+    X_train, X_test = x_data
     
-    model_in = Input(shape=(X_train.shape[1],), dtype='float32', sparse=True)
-    out = Dense(hidden_size, activation='relu')(model_in)
-    out = Dense(64, activation='relu')(out)
-    out = Dense(64, activation='relu')(out)
-    out = Dense(1)(out)
-    model = Model(inputs=model_in, outputs=out)
+    # 🌟 [복구된 핵심] TF 1.x 환경에 맞춘 스레드 제한 및 세션(Session) 격리
+    # 각 스레드(코어)가 자신만의 독립된 그래프와 세션을 가지도록 설정
+    config = tf.ConfigProto(
+        intra_op_parallelism_threads=1, 
+        use_per_session_threads=1, 
+        inter_op_parallelism_threads=1
+    )
     
-    model.compile(loss='mean_squared_error', optimizer=Adam(lr=lr))
-    
-    for i in range(epochs):
-        batch_s = batch_base * (2**i)
-        model.fit(x=X_train, y=y_train, batch_size=batch_s, epochs=1, verbose=0)
+    with tf.Session(graph=tf.Graph(), config=config) as sess:
+        ks.backend.set_session(sess)
         
-    return model.predict(X_test)[:, 0]
+        model_in = Input(shape=(X_train.shape[1],), dtype='float32', sparse=True)
+        out = Dense(hidden_size, activation='relu')(model_in)
+        out = Dense(64, activation='relu')(out)
+        out = Dense(64, activation='relu')(out)
+        out = Dense(1)(out)
+        model = Model(inputs=model_in, outputs=out)
+        
+        # 구형 Keras 호환을 위해 learning_rate 대신 lr 파라미터 사용
+        model.compile(loss='mean_squared_error', optimizer=Adam(lr=lr))
+        
+        for i in range(epochs):
+            batch_s = batch_base * (2**i)
+            model.fit(x=X_train, y=y_train, batch_size=batch_s, epochs=1, verbose=0)
+            
+        return model.predict(X_test)[:, 0]
+
+# 병렬 매핑을 위한 Wrapper 함수
+def fit_predict_wrapper(args):
+    x_data, y_train, lr, batch_base, epochs, hidden_size = args
+    return fit_predict(x_data, y_train, lr, batch_base, epochs, hidden_size)
     
 def main():
     print("="*75)
@@ -67,12 +87,10 @@ def main():
         n_jobs=4)
     y_scaler = StandardScaler()
 
-    # 1. Train 데이터를 쪼개지 않고 100% 모두 가져옵니다.
     print(" Loading train.tsv (100% Full Data)...")
     train = pd.read_table('train.tsv')
     train = train[train['price'] > 0].reset_index(drop=True)
     
-    # 2. 정답이 없는 진짜 수능 시험지(Test Stage 2)를 가져옵니다.
     print(" Loading test_stg2.tsv (Real Test Data)...")
     test = pd.read_table('test_stg2.tsv')
     
@@ -82,37 +100,40 @@ def main():
     X_train = vectorizer.fit_transform(preprocess(train)).astype(np.float32)
     X_test = vectorizer.transform(preprocess(test)).astype(np.float32)
     
-    # 메모리 확보를 위해 학습이 끝난 텍스트 원본 데이터 삭제
     del train 
 
     Xb_train, Xb_test = [x.astype(bool).astype(np.float32) for x in [X_train, X_test]]
     
-    # 시간에 쫓기지 않기 위해 중복(* 2)을 제거한 2세트(총 4개 모델) 설정
     xs = [[Xb_train, Xb_test], [X_train, X_test]]
 
     # ---------------------------------------------------------
-    # [Step 1] Baseline Group 학습 (140만 개 전체 데이터)
+    # [Step 1 & 2] Training ALL Models in Parallel (4 Cores)
     # ---------------------------------------------------------
     print("\n" + "="*75)
-    print(" [Phase 4] Training Baseline Models (100% Data, Sequential Mode)")
+    print(" [Phase 4-5] Training All Models Simultaneously (Parallel Mode)")
     print("="*75)
-    preds_baseline = []
-    for idx, x_data in enumerate(xs):
-        print(f"   - Training Baseline Model {idx+1}/{len(xs)}...")
-        pred = fit_predict(x_data, y_train, lr=3e-3, batch_base=2048, epochs=3, hidden_size=192)
-        preds_baseline.append(pred)
-
-    # ---------------------------------------------------------
-    # [Step 2] Heterogeneous Group 학습 (140만 개 전체 데이터)
-    # ---------------------------------------------------------
-    print("\n" + "="*75)
-    print(" [Phase 5] Training Heterogeneous Models (100% Data, Sequential Mode)")
-    print("="*75)
-    preds_hetero = []
-    for idx, x_data in enumerate(xs):
-        print(f"   - Training Hetero Model {idx+1}/{len(xs)}...")
-        pred = fit_predict(x_data, y_train, lr=0.00161, batch_base=1024, epochs=1, hidden_size=256)
-        preds_hetero.append(pred)
+    
+    # 4개의 모델(Baseline 2개, Hetero 2개)의 하이퍼파라미터 작업을 하나의 리스트로 통합
+    tasks = [
+        # Group A (원본 Baseline - 강력한 기준점 유지)
+        (xs[0], y_train, 3e-3, 2048, 3, 192),
+        (xs[1], y_train, 3e-3, 2048, 3, 192),
+        
+        # Group B (새로 찾은 Dual Hetero 최적 조합 - 다양성 극대화)
+        (xs[0], y_train, 0.0015246, 1024, 3, 256),  # 3에폭 깊은 학습
+        (xs[1], y_train, 0.0026261, 2048, 2, 128)   # 2에폭 얕은 학습
+    ]
+    
+    print("   ▶ Spawning 4 processes... (Mapping 4 Tasks to 4 Physical Cores)")
+    # 4개의 스레드를 띄워 4개의 작업을 일제히 시작
+    with ThreadPool(processes=4) as pool:
+        results = pool.map(fit_predict_wrapper, tasks)
+        
+    # 결과물을 리스트에서 분리하여 수합
+    preds_baseline = results[0:2]
+    preds_hetero = results[2:4]
+    
+    print("   ▶ All parallel models successfully trained and predicted!")
 
     # ---------------------------------------------------------
     # [Step 3] OR Strategy: 황금 가중치(Golden Weights) 적용
@@ -122,20 +143,16 @@ def main():
     print("="*75)
     
     shipping_flags = test['shipping'].values
-    matrix_all = np.column_stack(preds_baseline + preds_hetero) # 총 4개의 예측 결과(열)
+    matrix_all = np.column_stack(preds_baseline + preds_hetero) 
     
-    # 🌟 [매우 중요] 이전 모의고사(Validation) 단계에서 터미널에 출력되었던 
-    # w_all0 와 w_all1 의 실제 숫자 4개를 아래 배열에 적어주세요!
-    # (현재는 예시로 단순 1/N 평균값을 넣어두었습니다.)
     print("   ▶ Applying SciPy Golden Weights to Test Data...")
-    w_golden_0 = np.array([0.241525, 0.321700, 0.172541, 0.264233]) # 배송비 0일 때의 가중치 4개
-    w_golden_1 = np.array([0.288720, 0.377159, 0.162786, 0.171336]) # 배송비 1일 때의 가중치 4개
+    w_golden_0 = np.array([0.241525, 0.321700, 0.172541, 0.264233]) 
+    w_golden_1 = np.array([0.288720, 0.377159, 0.162786, 0.171336]) 
     
     preds_final = np.zeros(len(test))
     preds_final[shipping_flags == 0] = np.dot(matrix_all[shipping_flags == 0], w_golden_0)
     preds_final[shipping_flags == 1] = np.dot(matrix_all[shipping_flags == 1], w_golden_1)
     
-    # 역변환하여 실제 달러($) 가격으로 복원
     final_price = np.expm1(y_scaler.inverse_transform(preds_final.reshape(-1, 1))[:, 0])
 
     # ---------------------------------------------------------
@@ -149,9 +166,8 @@ def main():
         'price': final_price
     })
     
-    # 캐글 서버의 /kaggle/working/ 폴더에 저장됨
-    submission.to_csv('submission_stg2.csv', index=False)
-    print(" ✅ submission_stg2.csv successfully generated! Ready to Submit!")
+    submission.to_csv('submission.csv', index=False)
+    print(" ✅ submission.csv successfully generated! Ready to Submit!")
     print("="*75)
 
 if __name__ == '__main__':
