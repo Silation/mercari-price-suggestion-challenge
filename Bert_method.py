@@ -1,4 +1,12 @@
 import os
+# OMP 제한 및 Keras 2 강제 옵션
+os.environ['OMP_NUM_THREADS'] = '1'
+os.environ['TF_USE_LEGACY_KERAS'] = '1'
+
+# 🌟 [추가] XLA 컴파일러 경로 강제 지정 (에러 방지)
+conda_prefix = os.environ.get('CONDA_PREFIX', '/home/tlfgja8/miniconda3/envs/ds-bert')
+os.environ['XLA_FLAGS'] = f"--xla_gpu_cuda_data_dir={conda_prefix}"
+
 import time
 import numpy as np
 import pandas as pd
@@ -53,7 +61,7 @@ def build_bert_mlp_model(meta_dim, lr=3e-3, hidden_size=256):
     
     # 🌟 핵심 트릭: BERT 자체의 가중치는 업데이트하지 않음 (Freeze)
     # TF-IDF를 쓰던 기존 방식처럼 BERT를 '고밀도 특징 추출기'로만 사용해 MLP의 안정성 확보
-    bert_base.trainable = False 
+    bert_base.trainable = True 
 
     # BERT 통과 후 [CLS] 토큰 위치의 임베딩(문장 전체의 문맥 정보) 추출
     bert_outputs = bert_base(input_ids, attention_mask=attention_mask)
@@ -112,12 +120,12 @@ def main():
     valid_input_ids, valid_attention_mask = prepare_bert_inputs(valid_text, tokenizer)
 
     print(" [4] Building and Training Model...")
-    model = build_bert_mlp_model(meta_dim=meta_train.shape[1], lr=3e-3, hidden_size=256)
+    model = build_bert_mlp_model(meta_dim=meta_train.shape[1], lr=3e-4, hidden_size=256)
     model.summary() # 모델 구조 확인
 
     # 동적 배치 스케줄링 적용 (기존 로직 계승, 단 GPU 메모리에 맞게 기본값 하향)
     epochs = 3
-    batch_base = 256
+    batch_base = 32
     
     for i in range(epochs):
         batch_s = batch_base * (2**i)
