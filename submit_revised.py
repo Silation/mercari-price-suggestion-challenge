@@ -146,8 +146,8 @@ def main():
     matrix_all = np.column_stack(preds_baseline + preds_hetero) 
     
     print("   ▶ Applying SciPy Golden Weights to Test Data...")
-    w_golden_0 = np.array([0.241525, 0.321700, 0.172541, 0.264233]) 
-    w_golden_1 = np.array([0.288720, 0.377159, 0.162786, 0.171336]) 
+    w_golden_0 = np.array([0.178899, 0.296864, 0.223596, 0.300641])
+    w_golden_1 = np.array([0.214568, 0.282913, 0.271665, 0.230855])
     
     preds_final = np.zeros(len(test))
     preds_final[shipping_flags == 0] = np.dot(matrix_all[shipping_flags == 0], w_golden_0)

@@ -153,25 +153,37 @@ def main():
     print(" [Log] Data preparation complete. Proceeding to model training.\n")
 
     # ---------------------------------------------------------
-    # 1. 모델 그룹 A (기존 AS-IS 베이스라인 2개) 학습
+    # [Step 1 & 2] 4개 이종 모델 동시 병렬 학습 (Group A + Group B)
     # ---------------------------------------------------------
     print("="*60)
-    print(" [Step 1] Training Group A (Original AS-IS Models)")
+    print(" [Step 1 & 2] Training All Models Simultaneously (Parallel Mode)")
     print("="*60)
-    with ThreadPool(processes=2) as pool:
-        preds_A = pool.map(partial(fit_predict, y_train=y_train, lr=3e-3, batch_base=2048, epochs=3, hidden_size=192), xs)
-    print(" [Log] Group A Training Completed.\n")
+    
+    # 4개의 모델 하이퍼파라미터 작업을 개별적으로 정의
+    tasks = [
+        # Group A (원본 Baseline - 강력한 기준점 유지)
+        (xs[0], y_train, 3e-3, 2048, 3, 192),
+        (xs[1], y_train, 3e-3, 2048, 3, 192),
+        
+        # Group B (새로 찾은 Dual Hetero 최적 조합 - 다양성 극대화)
+        (xs[0], y_train, 0.0015246, 1024, 3, 256),  # 3에폭 깊은 학습
+        (xs[1], y_train, 0.0026261, 2048, 2, 128)   # 2에폭 얕은 학습
+    ]
 
-    # ---------------------------------------------------------
-    # 2. 모델 그룹 B (Optuna가 찾은 이종 다양성 모델 2개) 학습
-    # ---------------------------------------------------------
-    print("="*60)
-    print(" [Step 2] Training Group B (Optuna TO-BE Models for Diversity)")
-    print("="*60)
-    with ThreadPool(processes=2) as pool:
-        # 밤샘 실험에서 찾은 Best 파라미터 적용 완료!
-        preds_B = pool.map(partial(fit_predict, y_train=y_train, lr=0.00160955, batch_base=1024, epochs=1, hidden_size=256), xs)
-    print(" [Log] Group B Training Completed.\n")
+    # 병렬 매핑을 위한 Wrapper 함수 (입력된 튜플을 풀어 fit_predict에 전달)
+    def fit_predict_wrapper(args):
+        x_data, target, lr, batch_base, epochs, hidden_size = args
+        return fit_predict(x_data, target, lr, batch_base, epochs, hidden_size)
+
+    # 4개의 스레드를 띄워 4개의 작업을 물리적 코어 4개에 일제히 할당
+    with ThreadPool(processes=4) as pool:
+        results = pool.map(fit_predict_wrapper, tasks)
+        
+    # 결과물을 리스트에서 분리하여 수합 (기존 변수명 유지로 하단 로직과 호환)
+    preds_A = results[0:2]
+    preds_B = results[2:4]
+    
+    print(" [Log] Group A & Group B Training Completed.\n")
 
     # ---------------------------------------------------------
     # 3. Gurobi 최적화 (4개 모델 대통합)
